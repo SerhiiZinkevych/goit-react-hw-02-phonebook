@@ -15,19 +15,6 @@ export default class App extends Component {
     filter: '',
   };
 
-  componentDidMount() {
-    const fromLS = JSON.parse(localStorage.getItem('contacts'));
-    if (fromLS) {
-      this.setState({ contacts: fromLS });
-    }
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.contacts !== this.state.contacts) {
-      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
-    }
-  }
-
   changeFilter = e => {
     const { value } = e.target;
     this.setState({ filter: value });
